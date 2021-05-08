@@ -15,8 +15,17 @@ set wildignore+=**/.git/*
 source $HOME/.config/nvim/plugin/sets.vim
 
 call plug#begin('~/.config/nvim/plugged')
+  " lsp
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'hrsh7th/nvim-compe'
+  Plug 'simrat39/symbols-outline.nvim'
+  "Plug 'nvim-lua/completion-nvim'
+  " Syntax support
+  Plug 'sheerun/vim-polyglot'
   " Appareance 
   Plug 'gruvbox-community/gruvbox'
+  Plug 'flazz/vim-colorschemes'
+  Plug 'chriskempson/base16-vim'
   " Icons
   Plug 'ryanoasis/vim-devicons'
   " Ranger
@@ -36,10 +45,11 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'airblade/vim-rooter'
   " Indent guides
   Plug 'Yggdroot/indentLine' 
+  Plug 'tweekmonster/gofmt.vim'
+
 
 call plug#end()
 
-colorscheme gruvbox
 " highlight Normal guibg=none
 lua require("juantamayo")
 let g:mapleader = "\<Space>"
@@ -56,3 +66,20 @@ map <Leader>n :NERDTreeToggle<CR>
 " IdentLine
 let g:indentLine_setColors = 239
 let g:indentLine_char = '¦'
+
+" Better window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <Leader>+ :vertical resize +5<CR>
+nnoremap <Leader>- :vertical resize -5<CR>
+
+vnoremap <leader>p "_dP
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y gg"+yG
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+inoremap <C-c> <esc>
